@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Multilevel Sorting</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/lib/knockout-3.3.0.js">
+</script>
+    <script data-main="/js/main" src="/js/require.js">
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Multilevel Sorting Demo</h1>
+      <a href="#sakdj">hehe</a>
+      <a href="#test">haha</a>
+      <p>Look at source or inspect the DOM to see how it works.</p>
+      <div class="wrapper">
+        <div class="left">test1</div>
+        <div class="right">
+          <div>test2</div>
+        </div>
+      </div>
+      <ul class="folders" data-bind="foreach: folders">
+        <li data-bind="text: $data, css: { selected: $data == $root.chosenFolderId() }, click: $root.goToFolder"></li>
+      </ul>
+      <div id="kotest">
+        <h2>Your seat reservations(<span data-bind="text: seats().length"></span>)</h2>
+        <h3 data-bind="visible: totalSurcharge() > 0">
+          Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+        </h3>
+        <button data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat</button>
+        <button data-bind="click: Remove">Remove</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Passenger name</th>
+              <th>Meal</th>
+              <th>Surcharge</th>
+              <th></th>
+            </tr>
+          </thead>
+          <!-- Todo: Generate table body -->
+          <tbody data-bind="foreach: seats">
+            <tr>
+              <td><input data-bind="value: name" /></td>
+              <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+              <td data-bind="text: formattedPrice"></td>
+              <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
