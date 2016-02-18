@@ -108,5 +108,5 @@ require(["require", "jquery", "app/Grid", "app/SortOption", "app/GridSort", "jqu
 });
 */
 require(["require", "exports", "KO"], function (require, exports, KOTest) {
-	var kot = new KOTest();
+	//var kot = new KOTest();
 });

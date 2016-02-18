@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="http://demos.telerik.com/kendo-ui/range-bar-charts/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.1111/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.1111/styles/kendo.material.min.css" />
+    <script src="//kendo.cdn.telerik.com/2015.3.1111/js/jquery.min.js"></script>
+    <script src="//kendo.cdn.telerik.com/2015.3.1111/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="example">
+      <div class="demo-section k-content wide">
+        <div id="chart" style="width:360px; height:430px;"></div>
+        <div id="chart-1" style="width: 360px; height: 430px;"></div>
+      </div>
+      <script id="template" type="text/x-kendo-template">
+        <div>upper : #: points[0].value.to#</div>
+        <div>lower : #: points[0].value.from#</div>
+        <div>average : #: points[1].value#</div>
+        <div>mySelf: #: points[2].value#</div>
+      </script>
+      <script>
+        function createChart() {
+          $("#chart-1").kendoChart({
+            //legend: {
+             /// border: {
+            //    width: 2,
+            //    color: "green"
+             // }
+           // },
+            series: [
+              { name: "Series 1", data: [1, 2, 3] },
+              { name: "Series 2", data: [3, 4, 5] }
+            ]
+          });
+          var data = [
+            {lowerBound: 5, upperBound: 11, average: 7, myself:5},
+            {lowerBound: 5, upperBound: 13, average: 11, myself: 6},
+            {lowerBound: 7, upperBound: 15, average: 11, myself: 6},
+            {lowerBound: 10, upperBound: 19, average: 11, myself: 6},
+            {lowerBound: 13, upperBound: 23, average: 11, myself: 6},
+            {lowerBound: 17, upperBound: 28, average: 11, myself: 6},
+            {lowerBound: 20, upperBound: 30, average: 10, myself: 6},
+            {lowerBound: 20, upperBound: 30, average: 11, myself: 6},
+            {lowerBound: 17, upperBound: 26, average: 11, myself: 6},
+            {lowerBound: 13, upperBound: 22, average: 10, myself: 6},
+            {lowerBound: 9, upperBound: 16, average: 11, myself: 6},
+            {lowerBound: 6, upperBound: 13, average: 11, myself: 6}
+          ];
+          var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          var rangeBarData = [data[0]];
+          //var averageData = [data[0].average];
+          //var myselfData = [data[0].myself];
+          $("#chart").kendoChart({
+            theme: "flat",
+            dataSource: {
+              data: rangeBarData
+            },
+            legend: {
+              enabled: false
+            //  border: {
+            //    width: 2,
+            //    color: "green"
+            //  }
+            },
+            series: [
+              {
+                type: "rangeColumn",
+                //opacity: 0.7,
+                color: "rgb(214, 214, 214)",
+                fromField: 'lowerBound',
+                toField: 'upperBound',
+                border: {
+                  width: 0
+                },
+                zIndex: 11,
+                name: "competitor group range"
+              },
+              {
+                type: "line",
+                // data: averageData,
+                field: "average",
+                color: 'rgb(238, 102, 0)',
+                markers: {
+                  visible: true,
+                  type: "square",
+                  rotation: 45,
+                  background: "rgb(238, 102, 0)",
+                  size: 5
+                },
+                zIndex: 12,
+                name: "competitor group average"
+              },
+              {
+                type: "line",
+                //data: myselfData,
+                field: "myself",
+                color: 'rgb(21, 112, 166)',
+                markers: {
+                  visible: true,
+                  type: "circle",
+                  background: "rgb(21, 112, 166)",
+                  size: 5
+                },
+                zIndex: 13,
+                name: "customer name"
+              }
+            ],
+            categoryAxis: {
+              categories: [month[0]],
+              labels: {
+                rotation: "auto"
+              }
+            },
+            tooltip: {
+              visible: true,
+              background: 'green',
+              border: {
+                width: 0
+              },
+              //format: "{0}",
+              shared: true,
+              sharedTemplate:kendo.template($("#template").html())
+              // template: "Avg Min Temp : #= value.from || value # °C <br>Avg Max Temp : #= value.to # °C"
+            }
+                      
+          });
+        }
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+      </script>
+    </div>
+  </body>
+</html>

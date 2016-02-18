@@ -11,6 +11,34 @@
   </head>
   <body>
     <div class="container">
+      <div style="border:1px solid #F00">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="51" >
+          <g class="highcharts-legend" zIndex="7" transform="translate(10,0)">
+            <g zIndex="1">
+              <g>
+                <g class="highcharts-legend-item" zIndex="1" transform="translate(0,0)">
+                  <path fill="none" d="M 0 11 L 16 11" stroke-width="2" stroke-dasharray="NaN" stroke="rgb(21, 112, 166)"></path><path fill="rgb(21, 112, 166)" d="M 8 7 C 13.328 7 13.328 15 8 15 C 2.672 15 2.672 7 8 7 Z" stroke="#FFFFFF" stroke-width="0.00001"></path>
+                  <text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2">
+                    <tspan>Internet Solutions</tspan>
+                  </text>
+                </g>
+                <g class="highcharts-legend-item" zIndex="1" transform="translate(0,17)">
+                  <path fill="none" d="M 0 11 L 16 11" stroke-width="2" stroke-dasharray="6,2" stroke="rgb(238, 102, 0)"></path>
+                  <text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2">
+                    <tspan>Competitor group average</tspan>
+                  </text>
+                </g>
+                <g class="highcharts-legend-item" zIndex="1" transform="translate(0,34)">
+                  <text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2">
+                    <tspan>Competitor range</tspan>
+                  </text>
+                  <rect x="0" y="4" width="16" height="12" zIndex="3" fill="rgb(214, 214, 214)"></rect>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
       <h1>Multilevel Sorting Demo</h1>
       <a href="#sakdj">hehe</a>
       <a href="#test">haha</a>
@@ -20,6 +48,12 @@
         <div class="right">
           <div>test2</div>
         </div>
+      </div>
+
+      <div>
+        <svg viewBix="0 0 400 400">
+          <g transform></g>
+        </svg>
       </div>
       <ul class="folders" data-bind="foreach: folders">
         <li data-bind="text: $data, css: { selected: $data == $root.chosenFolderId() }, click: $root.goToFolder"></li>
