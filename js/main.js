@@ -30,7 +30,7 @@ requirejs.config({
 				}
 			}
 		}
-	}
+	},
 //	map: {
 //		// '*' means all modules will get 'jquery-private'
 //		// for their 'jquery' dependency.
