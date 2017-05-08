@@ -4,7 +4,11 @@
     display: inline-block;
 }
 
+ul {
+    list-style-type: none;
+}
 .talk-bubble-left {
+    position: relative;
     border-top-width: 50px;
     border-top-style: solid;
     border-left: 5px solid transparent;
@@ -25,13 +29,13 @@
 .talk-bubble-primary {
     border-top-color: #00CCFF;
     height: 0;
-    width: 125px;
+    width: 120px;
 }
 
 .talk-bubble-primary:after {
     border-left-color: #00CCFF;
-    top: 13px;
-    left: 125px;
+    top: -37px;
+    left: 120px;
 }
 
 .talk-bubble-open {
@@ -42,11 +46,13 @@
 
 .talk-bubble-open:after {
     border-left-color: red;
-    top: 13px;
-    left: 125px;
+    top: -37px;
+    left: 120px;
 }
 
-
-.c-label {
+.text-content {
     position: absolute;
+    top: -40px;
+    left: 20px;
+    color: white;
 }
