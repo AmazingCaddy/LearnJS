@@ -1,55 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Bootstrap Demo</title>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/style.css">
-<!--
-    <script src="/js/lib/knockout-3.4.2.debug.js"></script>
--->
-    <style>
-    .flex {
-        /* basic styling */
-        width: 350px;
-        height: 200px;
-        border: 1px solid #555;
-        font: 14px Arial;
+<html>
 
-        /* flexbox setup */
-        display: flex;
-        flex-direction: row;
-    }
+<head>
+  <title>Demo Page</title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/kendo/kendo.common-bootstrap.min.css">
+  <link rel="stylesheet" href="/css/kendo/kendo.bootstrap.min.css">
 
-    .flex > div {
-        flex: 1 1 auto;
-        width: 30px; /* To make the transition work nicely. (Transitions to/from
-                        "width:auto" are buggy in Gecko and Webkit, at least.
-                        See http://bugzil.la/731886 for more info.) */
-        transition: width 0.7s ease-out;
-    }
+  <link rel="stylesheet" href="/css/style.css">
 
-    /* colors */
-    .flex > div:nth-child(1){ background: #009246; }
-    .flex > div:nth-child(2){ background: #F1F2F1; }
-    .flex > div:nth-child(3){ background: #CE2B37; }
+</head>
 
-    .flex > div:hover {
-        width: 200px;
-    }
-   
-    </style> 
+<body>
+  <div class="demo-root"></div>
+  <script src="/dist/app.bundle.js"></script>
+</body>
 
-    <script data-main="/js/main" src="/js/require.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div></div>
-    </div>
-    <p>Flexbox nuovo</p>
-    <div class="flex">
-      <div>uno</div>
-      <div>due</div>
-      <div>tre</div>
-    </div>
-  </body>
 </html>
